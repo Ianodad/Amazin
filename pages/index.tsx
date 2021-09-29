@@ -1,24 +1,44 @@
 import { NextPage } from 'next/types';
+import { GetServerSidePropsContext } from 'next';
+
 // import Button from '@mui/material/Button';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
+import { connect } from 'react-redux';
 
-const Home: NextPage = () => (
-  <>
-    <main>
-      <div className="h-[100vh] flex flex-col justify-center align-middle text-center">
-        <h1 className="text-[72px] bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 font-extrabold">
-          Batteries Included Next.js
-        </h1>
-        <h2 className="text-2xl max-w-md mx-auto">
-          A Next.js Boilerplate with Redux, TypeScript, Tailwind CSS, Material Ui PWA, Jest Testing
-          suite and Docker Hot reload enabled
-        </h2>
-        <Button color="primary" variant="contained">
-          My App
-        </Button>
-      </div>
-    </main>
-  </>
-);
+import { wrapper } from '../src/redux/store';
+// import actions;
+import { getAllProducts } from '../src/redux/actions/productsActions';
+import MainLayout from 'src/components/Layouts/MainLayout';
+import ProductCard from '@components/ProductCard';
+import { useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+
+export interface ServerSidePropsContext extends GetServerSidePropsContext {
+  store: any;
+}
+// const { getAllProducts } = productsActions;
+const Home: NextPage = (props) => {
+  // {console.log(props)}
+  const { products } = useSelector((state) => state.products);
+  // console.log('products', products);
+  return (
+    <>
+      <MainLayout>
+        <main>
+          <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">
+            {products &&
+              products.map((product, index) => <ProductCard key={index} product={product} />)}
+          </div>
+        </main>
+      </MainLayout>
+    </>
+  );
+};
+
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ req }) => {
+  // const { store } = context;
+  await store.dispatch(getAllProducts(req));
+});
 export default Home;

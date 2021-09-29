@@ -7,6 +7,9 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
   },
+  images: {
+    domains: ['drive.google.com', 'res.cloudinary.com', 'unsplash.com'],
+  },
   webpackDevMiddleware: (config) => {
     config.watchOptions = {
       poll: 1000,

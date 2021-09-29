@@ -1,19 +1,19 @@
-import {createWrapper, HYDRATE} from 'next-redux-wrapper';
-import {applyMiddleware, createStore} from 'redux';
+import { createWrapper, HYDRATE, MakeStore } from 'next-redux-wrapper';
+import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import reducers from './reducers';
-import {ProductsType} from './reducers/productsReducers';
+import reducers, { ProductsType } from './reducers';
+// import {ProductsType} from './reducers/productsReducers';
 
-// export interface AppState {
-//   products: ProductsType;
-// }
+export interface AppState {
+  products: ProductsType;
+}
 
 // middle ware initialization
 const bindMiddleware = (middleware: any) => {
   // check if app is in production
   if (process.env.NODE_ENV !== 'production') {
-    const {composeWithDevTools} = require('redux-devtools-extension');
+    const { composeWithDevTools } = require('redux-devtools-extension');
     return composeWithDevTools(applyMiddleware(...middleware));
   }
 
@@ -32,6 +32,7 @@ const reducer = (state: any, action: any) => {
   return reducers(state, action);
 };
 
-const initStore = () => createStore(reducer, bindMiddleware([thunkMiddleware]));
+const initStore: MakeStore<AppState> = () =>
+  createStore(reducer, bindMiddleware([thunkMiddleware]));
 
 export const wrapper = createWrapper(initStore);

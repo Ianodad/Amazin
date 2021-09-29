@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@components/*": ["components/*"],
+      "@components/*": ["src/components/*"],
       "@styles/*": ["styles/*"],
       "@pages/*": ["pages/*"],
       "@hooks/*": ["hooks/*"]
@@ -25,5 +25,5 @@
   },
   "exclude": ["node_modules", "next.config.js"],
   "files": ["pages/index.tsx"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "pages/index.tsx"]
 }

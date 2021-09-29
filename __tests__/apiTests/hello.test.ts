@@ -1,4 +1,4 @@
-import handler from '@pages/api/hello';
+import handler from '@pages/api/products';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { createMocks } from 'node-mocks-http';
 

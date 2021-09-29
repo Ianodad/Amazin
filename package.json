@@ -14,10 +14,13 @@
     "dev:up": "docker-compose -f docker-compose.dev.yml up -d --build"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.12.3",
     "@mui/material": "^5.0.1",
     "@mui/styled-engine-sc": "^5.0.0",
     "@next/eslint-plugin-next": "^11.1.2",
+    "axios": "^0.21.4",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -26,6 +29,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-unicorn": "^36.0.0",
     "next": "11.1.2",
+    "next-absolute-url": "^1.2.2",
     "next-pwa": "^5.3.1",
     "next-redux-wrapper": "^7.0.5",
     "react": "17.0.2",
