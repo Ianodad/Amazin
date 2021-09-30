@@ -1,14 +1,19 @@
-## Profile MAster
+## Amazin eCommerce
 
 #### Example:
 
-This is a simple profile view app to users
+Front end for a eCommerce application
 
 ## Project Status
 ## Key Feautures
-<!-- - [x] Fetch data from Api 
-- [x] View individual users profile
-- [ ] Edit User Profile  -->
+- [x] Redux 
+- [x] SSR
+- [x] Typescript
+- [ ] Docker
+- [ ] PWA(Service Workers)
+- [ ] Shopping Cart
+- [ ] 18n library
+
 
 
 
