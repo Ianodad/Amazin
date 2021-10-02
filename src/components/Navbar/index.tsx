@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const index = () => {
+const index = ({ cart }) => {
+  // console.log('navBar', cart);
   return (
     <nav className="bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
@@ -77,7 +78,9 @@ const index = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="absolute top-0 left-0 p-1 text-xs text-white bg-indigo-500 rounded-full" />
+              {cart && (
+                <span className="absolute top-0 left-0 p-1 text-xs text-white bg-indigo-500 rounded-full" />
+              )}
             </a>
           </div>
         </div>

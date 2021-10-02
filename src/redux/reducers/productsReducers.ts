@@ -11,6 +11,8 @@ const initialState: ProductsType = {
   productDetails: {},
 };
 
+
+
 export const productsReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case GET_ALL_PRODUCTS:

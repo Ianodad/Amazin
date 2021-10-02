@@ -10,7 +10,7 @@ import { wrapper } from '../src/redux/store';
 // import actions;
 import { getAllProducts } from '../src/redux/actions/productsActions';
 import MainLayout from 'src/components/Layouts/MainLayout';
-import ProductCard from '@components/ProductCard';
+import  ProductCard  from '../src/components/ProductCard';
 import { useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
@@ -29,7 +29,7 @@ const Home: NextPage = (props) => {
         <main>
           <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">
             {products &&
-              products.map((product, index) => <ProductCard key={index} product={product} />)}
+              products.map((product) => <ProductCard key={product.id} product={product} />)}
           </div>
         </main>
       </MainLayout>
