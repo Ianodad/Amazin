@@ -1,4 +1,8 @@
-import { ADD_PRODUCT_TO_CART, ADD_PRODUCT_CART_FAILURE } from '../constants/cartConstants';
+import {
+  ADD_PRODUCT_TO_CART,
+  ADD_PRODUCT_CART_FAILURE,
+  CART_POSITION,
+} from '../constants/cartConstants';
 
 var _ = require('lodash');
 
@@ -11,10 +15,8 @@ export const addProductToCart = (product) => async (dispatch) => {
       const filteredProducts = fromCartProducts.filter((item) => item.id !== productCart.id);
       productCart.cartQuantity += 1;
       productCart.available_quantity -= 1;
-      // console.log('filteredProducts', filteredProducts);
-      // console.log([filteredProducts, ...productCarts]);
+
       localStorage.setItem('amazinCart', JSON.stringify([...filteredProducts, productCart]));
-      // const dataProducts = JSON.parse(JSON.stringify({filteredProducts, ...productCarts}));
 
       console.log([...filteredProducts, productCart]);
       dispatch({
@@ -60,6 +62,32 @@ export const removeProductFromCart = (req, product) => async (dispatch) => {
       type: ADD_PRODUCT_CART_FAILURE,
       payload: error,
     });
+  }
+};
+
+export const closeCart = () => async (dispatch) => {
+  console.log('closeCart');
+
+  try {
+    dispatch({
+      type: CART_POSITION,
+      payload: false,
+    });
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
+export const openCart = () => async (dispatch) => {
+  console.log('closeCart');
+
+  try {
+    dispatch({
+      type: CART_POSITION,
+      payload: true,
+    });
+  } catch (error) {
+    console.log('error', error);
   }
 };
 

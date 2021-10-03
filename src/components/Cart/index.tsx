@@ -1,17 +1,38 @@
 import React from 'react';
 import CartCard from './CartCard';
-import { loadCart } from '../../redux/actions/cartActions';
+import { closeCart, loadCart } from '../../redux/actions/cartActions';
 
 import { wrapper } from '../../redux/store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import
 const index = () => {
-  const { cart } = useSelector((state) => state.cart);
-  console.log('cart', cart);
+  const dispatch = useDispatch();
+
+  const { cartState, products } = useSelector((state) => state);
+  const { cart, cartPosition } = cartState;
+  const { currency } = products;
+  console.log('cart', cartPosition);
+  const currencyType = cart[0]?.prices[currency]?.currency;
+  console.log(currencyType);
+  const onCloseCart = () => {
+    dispatch(closeCart());
+  };
+
+  const calculateTotal = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      if (item.cartQuantity > 0) {
+        total += item.prices[currency].price * item.cartQuantity;
+      } else {
+        total += item.prices[currency].price;
+      }
+    });
+    return total;
+  };
   return (
     <div
-      className={`fixed inset-0 overflow-hidden z-20 ${cart ? '' : 'hidden'}`}
+      className={`fixed inset-0 overflow-hidden z-20 ${cartPosition ? '' : 'hidden'}`}
       aria-labelledby="slide-over-title"
       role="dialog"
       aria-modal="true"
@@ -50,7 +71,11 @@ Leaving: "ease-in-out duration-500"
                     Shopping cart
                   </h2>
                   <div className="ml-3 h-7 flex items-center">
-                    <button type="button" className="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                    <button
+                      onClick={() => onCloseCart()}
+                      type="button"
+                      className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                    >
                       <span className="sr-only">Close panel</span>
                       {/* Heroicon name: outline/x */}
                       <svg
@@ -76,7 +101,7 @@ Leaving: "ease-in-out duration-500"
                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                       {cart &&
                         cart.map((item, index) => {
-                          return <CartCard key={index} product={item} />;
+                          return <CartCard key={index} product={item} currency={currency} />;
                         })}
                     </ul>
                   </div>
@@ -85,7 +110,7 @@ Leaving: "ease-in-out duration-500"
               <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  {cart && <p>{`${currencyType} ${calculateTotal()}`}</p>}
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.
@@ -102,6 +127,7 @@ Leaving: "ease-in-out duration-500"
                   <p>
                     or{' '}
                     <button
+                      onClick={() => onCloseCart()}
                       type="button"
                       className="text-indigo-600 font-medium hover:text-indigo-500"
                     >

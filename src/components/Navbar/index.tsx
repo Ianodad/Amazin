@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CurrencySelect from './CurrencySelect';
 
-const index = ({ cart }) => {
+const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
   // console.log('navBar', cart);
   return (
     <nav className="bg-white shadow dark:bg-gray-800">
@@ -12,7 +13,7 @@ const index = ({ cart }) => {
               className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
               href="#"
             >
-              Brand
+              Amazin
             </a>
           </div>
           {/* Mobile menu button */}
@@ -59,7 +60,10 @@ const index = ({ cart }) => {
               About
             </a>
           </div>
-          <div className="flex justify-center md:block">
+          <div>
+            <CurrencySelect changeCurrency={changeCurrency} currency={currency} />
+          </div>
+          <div className="flex justify-center md:block" onClick={onOpenCart}>
             <a
               className="relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300"
               href="#"

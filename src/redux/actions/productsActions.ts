@@ -2,6 +2,7 @@ import {
   GET_ALL_PRODUCTS,
   GET_ALL_PRODUCTS_FAILURE,
   GET_A_PRODUCT,
+  CHANGE_CURRENCY,
   GET_A_PRODUCT_FAILURE,
 } from '../constants/productsConstants';
 import { Action } from 'redux';
@@ -49,6 +50,13 @@ export const getProduct = (req, id) => async (dispatch) => {
   }
 };
 
+export const changeCurrency = (currency) => async (dispatch) => {
+  
+  dispatch({
+    type: CHANGE_CURRENCY,
+    payload: currency,
+  });
+}
 // export const productsActions = {
 //   getAllProducts,
 // };

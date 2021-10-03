@@ -5,15 +5,17 @@ import { cartReducer } from './cartReducer';
 export interface ProductsType {
   products: any[];
   productDetails: any;
+  currency: number;
 }
 
 export interface CartType {
   cart: any[];
+  cartPosition: boolean;
 }
 
 const reducer = combineReducers({
   products: productsReducer,
-  cart: cartReducer,
+  cartState: cartReducer,
 });
 
 export default reducer;

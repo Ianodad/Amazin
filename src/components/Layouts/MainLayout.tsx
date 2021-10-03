@@ -1,23 +1,41 @@
 import React, { FC, useState, useEffect } from 'react';
 import Navbar from '../Navbar';
 import Cart from '../Cart';
-import { loadCart } from '../../redux/actions/cartActions';
+import { loadCart, closeCart, openCart } from '../../redux/actions/cartActions';
+import { changeCurrency } from '../../redux/actions/productsActions';
 import { useDispatch, useSelector } from 'react-redux';
 
 const MainLayout: FC = ({ children }) => {
   const dispatch = useDispatch();
 
-  const { cart } = useSelector((state) => state.cart);
+  const { cartState, products } = useSelector((state) => state);
+  const { cart } = cartState;
+  const { currency } = products;
 
   useEffect(() => {
     dispatch(loadCart());
+    // dispatch(closeCart());
   }, [dispatch]);
 
+  const onCart = () => {
+    dispatch(openCart());
+  };
+
+  const onChangeCurrency = ({ value }) => {
+    console.log(value);
+    dispatch(changeCurrency(value));
+  };
+  console.log(currency);
   return (
     <div className="flex flex-col justify-center align-middle text-center">
-      <Navbar cart={cart} />
+      <Navbar
+        cart={cart}
+        currency={currency}
+        onOpenCart={() => onCart()}
+        changeCurrency={onChangeCurrency}
+      />
       {children}
-      <Cart cart={cart} />
+      <Cart />
     </div>
   );
 };

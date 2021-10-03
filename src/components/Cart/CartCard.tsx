@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const CartCard = ({ product }) => {
+const CartCard = ({ product, currency }) => {
   const { name, prices, cartQuantity, image_url } = product;
   return (
     <li className="py-6 flex">
@@ -20,7 +20,11 @@ const CartCard = ({ product }) => {
             <h3>
               <a href="#">{name}</a>
             </h3>
-            <p className="ml-4">{prices[0].price}</p>
+            <p className="ml-4">
+              {`${prices[currency].currency} ${
+                cartQuantity > 0 ? prices[1].price * cartQuantity : prices[1].price
+              }`}
+            </p>
           </div>
           <p className="mt-1 text-sm text-gray-500">Salmon</p>
         </div>

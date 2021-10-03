@@ -21,7 +21,7 @@ export interface ServerSidePropsContext extends GetServerSidePropsContext {
 // const { getAllProducts } = productsActions;
 const Home: NextPage = (props) => {
   // {console.log(props)}
-  const { products } = useSelector((state) => state.products);
+  const { products, currency } = useSelector((state) => state.products);
   // console.log('products', products);
   return (
     <>
@@ -29,7 +29,9 @@ const Home: NextPage = (props) => {
         <main>
           <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">
             {products &&
-              products.map((product) => <ProductCard key={product.id} product={product} />)}
+              products.map((product) => (
+                <ProductCard key={product.id} product={product} currency={currency} />
+              ))}
           </div>
         </main>
       </MainLayout>
