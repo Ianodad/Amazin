@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const CartCard = ({ product, currency }) => {
+const CartCard = ({ product, currency, onRemoveFromCart }) => {
   const { name, prices, cartQuantity, image_url } = product;
   return (
     <li className="py-6 flex">
@@ -31,7 +31,11 @@ const CartCard = ({ product, currency }) => {
         <div className="flex-1 flex items-end justify-between text-sm">
           <p className="text-gray-500">Qty {cartQuantity}</p>
           <div className="flex">
-            <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+            <button
+              onClick={()=>onRemoveFromCart(product)}
+              type="button"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+            >
               Remove
             </button>
           </div>

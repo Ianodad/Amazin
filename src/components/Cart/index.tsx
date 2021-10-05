@@ -1,6 +1,6 @@
 import React from 'react';
 import CartCard from './CartCard';
-import { closeCart, loadCart } from '../../redux/actions/cartActions';
+import { closeCart, loadCart, removeProductFromCart } from '../../redux/actions/cartActions';
 
 import { wrapper } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,6 +29,11 @@ const index = () => {
       }
     });
     return total;
+  };
+
+  const onRemoveFromCart = (prod) => {
+    console.log('remove', prod);
+    dispatch(removeProductFromCart(prod));
   };
   return (
     <div
@@ -101,7 +106,14 @@ Leaving: "ease-in-out duration-500"
                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                       {cart &&
                         cart.map((item, index) => {
-                          return <CartCard key={index} product={item} currency={currency} />;
+                          return (
+                            <CartCard
+                              key={index}
+                              product={item}
+                              currency={currency}
+                              onRemoveFromCart={onRemoveFromCart}
+                            />
+                          );
                         })}
                     </ul>
                   </div>

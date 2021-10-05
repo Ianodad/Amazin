@@ -2,18 +2,21 @@ import MainLayout from '@components/Layouts/MainLayout';
 import React from 'react';
 import { wrapper } from 'src/redux/store';
 import { getProduct } from '../../src/redux/actions/productsActions';
+import { addProductToCart } from '../../src/redux/actions/cartActions';
+import { useSelector } from 'react-redux';
 
 import ProductDetails from '@components/ProductDetails';
-import { useSelector } from 'react-redux';
 
 const productDetails = () => {
   const { products } = useSelector((state) => state);
 
-//   console.log(products.productDetails);
-
   return (
     <MainLayout>
-      <ProductDetails productDetails={products.productDetails} />
+      <div className="w-90">
+        {products && (
+          <ProductDetails productDetails={products.productDetails} currency={products.currency} />
+        )}
+      </div>
     </MainLayout>
   );
 };

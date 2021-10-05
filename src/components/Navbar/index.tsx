@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CurrencySelect from './CurrencySelect';
+import Link from 'next/link';
 
 const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
   // console.log('navBar', cart);
@@ -8,14 +9,14 @@ const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
     <nav className="bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <div>
+          <Link href="/">
             <a
               className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
               href="#"
             >
               Amazin
             </a>
-          </div>
+          </Link>
           {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button
@@ -34,33 +35,8 @@ const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
         </div>
         {/* Mobile Menu open: "block", Menu closed: "hidden" */}
         <div className="items-center md:flex">
-          <div className="flex flex-col md:flex-row md:mx-6">
-            <a
-              className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0"
-              href="#"
-            >
-              Home
-            </a>
-            <a
-              className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0"
-              href="#"
-            >
-              Shop
-            </a>
-            <a
-              className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0"
-              href="#"
-            >
-              Contact
-            </a>
-            <a
-              className="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 md:mx-4 md:my-0"
-              href="#"
-            >
-              About
-            </a>
-          </div>
-          <div>
+          <div className="flex flex-col md:flex-row md:mx-6">CURRENCY</div>
+          <div className="mx-5">
             <CurrencySelect changeCurrency={changeCurrency} currency={currency} />
           </div>
           <div className="flex justify-center md:block" onClick={onOpenCart}>

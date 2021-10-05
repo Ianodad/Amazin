@@ -46,7 +46,8 @@ export const addProductToCart = (product) => async (dispatch) => {
   }
 };
 
-export const removeProductFromCart = (req, product) => async (dispatch) => {
+export const removeProductFromCart = (product) => async (dispatch) => {
+  // console.log(product);
   try {
     let fromCartProducts = JSON.parse(localStorage.getItem('amazinCart'));
 
