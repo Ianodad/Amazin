@@ -854,6 +854,9 @@ video {
 	--tw-divide-opacity: 1;
 	border-color: rgba(229, 231, 235, var(--tw-divide-opacity));
 }
+.self-center {
+	align-self: center;
+}
 .overflow-hidden {
 	overflow: hidden;
 }

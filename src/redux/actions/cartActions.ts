@@ -67,7 +67,6 @@ export const removeProductFromCart = (product) => async (dispatch) => {
 };
 
 export const closeCart = () => async (dispatch) => {
-  console.log('closeCart');
 
   try {
     dispatch({
@@ -80,7 +79,6 @@ export const closeCart = () => async (dispatch) => {
 };
 
 export const openCart = () => async (dispatch) => {
-  console.log('closeCart');
 
   try {
     dispatch({

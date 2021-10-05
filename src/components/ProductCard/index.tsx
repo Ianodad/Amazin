@@ -10,7 +10,6 @@ const index = ({ product, currency }) => {
   const { id, name, image_url, prices } = product;
 
   const addToCart = () => {
-    console.log('hello');
     dispatch(addProductToCart(product));
   };
 
@@ -46,8 +45,5 @@ const index = ({ product, currency }) => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
 
 export default index;

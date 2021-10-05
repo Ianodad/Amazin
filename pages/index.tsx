@@ -10,10 +10,12 @@ import { wrapper } from '../src/redux/store';
 // import actions;
 import { getAllProducts } from '../src/redux/actions/productsActions';
 import MainLayout from 'src/components/Layouts/MainLayout';
-import  ProductCard  from '../src/components/ProductCard';
+import ProductCard from '../src/components/ProductCard';
 import { useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
+
+import { ProductsLoader } from '../src/utils/Loaders/productsLoader';
 
 export interface ServerSidePropsContext extends GetServerSidePropsContext {
   store: any;
@@ -22,16 +24,24 @@ export interface ServerSidePropsContext extends GetServerSidePropsContext {
 const Home: NextPage = (props) => {
   // {console.log(props)}
   const { products, currency } = useSelector((state) => state.products);
+
   // console.log('products', products);
+  if (products.length === 0) {
+    return <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">ProductsLoader</div>;
+  }
+
   return (
     <>
       <MainLayout>
         <main>
           <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">
-            {products &&
+            {products.length === 0 ? (
+              <ProductsLoader />
+            ) : (
               products.map((product) => (
                 <ProductCard key={product.id} product={product} currency={currency} />
-              ))}
+              ))
+            )}
           </div>
         </main>
       </MainLayout>

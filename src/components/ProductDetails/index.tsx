@@ -7,7 +7,6 @@ import { addProductToCart } from '../../redux/actions/cartActions';
 
 const index = ({ productDetails, currency }) => {
   const dispatch = useDispatch();
-  console.log('currency', currency);
   const { id, name, description, image_url, rating, available_quantity, prices } = productDetails;
   return (
     <>

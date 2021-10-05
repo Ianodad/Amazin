@@ -32,7 +32,6 @@ const index = () => {
   };
 
   const onRemoveFromCart = (prod) => {
-    console.log('remove', prod);
     dispatch(removeProductFromCart(prod));
   };
   return (

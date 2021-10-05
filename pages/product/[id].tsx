@@ -6,15 +6,22 @@ import { addProductToCart } from '../../src/redux/actions/cartActions';
 import { useSelector } from 'react-redux';
 
 import ProductDetails from '@components/ProductDetails';
+import ProductDetailLoader from '../../src/utils/Loaders/productDetailsLoader';
 
 const productDetails = () => {
   const { products } = useSelector((state) => state);
 
   return (
     <MainLayout>
-      <div className="w-90">
-        {products && (
-          <ProductDetails productDetails={products.productDetails} currency={products.currency} />
+      <div className="container flex justify-center">
+        {!products ? (
+          <div className="self-center">
+            <ProductDetailLoader />
+          </div>
+        ) : (
+          <div className="mx-auto">
+            <ProductDetails productDetails={products.productDetails} currency={products.currency} />
+          </div>
         )}
       </div>
     </MainLayout>

@@ -22,10 +22,8 @@ const MainLayout: FC = ({ children }) => {
   };
 
   const onChangeCurrency = ({ value }) => {
-    console.log(value);
     dispatch(changeCurrency(value));
   };
-  console.log(currency);
   return (
     <div className="flex flex-col justify-center align-middle text-center">
       <Navbar
