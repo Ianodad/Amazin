@@ -1,22 +1,33 @@
 {
-    "name":"Amazin",
-    "short_name":"An",
-    "icons":[
-        {
-            "src":"./favicon.ico",
-            "sizes":"16x16",
-            "type":"image/x-icon"
-        },
-        {
-            "src":"./vercel.svg",
-            "sizes":"48x48",
-            "type":"image/svg+xml"
-        }
-    ],
-    "start_url":"/",
-    "display":"standalone",
-    "theme_color":"#ffffff",
-    "background_color":"#ffffff",
-    "orientation": "portrait"
-    
+  "name": "Amazin",
+  "short_name": "A",
+  "scope": "/",
+  "start_url": "/",
+  "description": "This app amazin eCommerce ",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "orientation": "landscape"
 }

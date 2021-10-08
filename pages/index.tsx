@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { ProductsLoader } from '../src/utils/Loaders/productsLoader';
+import ProductsLoader from '../src/utils/Loaders/productsLoader';
 
 export interface ServerSidePropsContext extends GetServerSidePropsContext {
   store: any;
@@ -26,9 +26,6 @@ const Home: NextPage = (props) => {
   const { products, currency } = useSelector((state) => state.products);
 
   // console.log('products', products);
-  if (products.length === 0) {
-    return <div className="container mt-10 grid grid-cols-3 gap-4 mx-auto">ProductsLoader</div>;
-  }
 
   return (
     <>
