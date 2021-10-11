@@ -1,5 +1,6 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/naming-convention */
 import Image from 'next/image';
+import React from 'react';
 
 const CartCard = ({ product, currency, onRemoveFromCart }) => {
   const { name, prices, cartQuantity, image_url } = product;
@@ -32,7 +33,7 @@ const CartCard = ({ product, currency, onRemoveFromCart }) => {
           <p className="text-gray-500">Qty {cartQuantity}</p>
           <div className="flex">
             <button
-              onClick={()=>onRemoveFromCart(product)}
+              onClick={() => onRemoveFromCart(product)}
               type="button"
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >

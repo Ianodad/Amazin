@@ -1,12 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
 import Image from 'next/image';
-import { addProductToCart } from '../../redux/actions/cartActions';
-import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
+import React from 'react';
+import { connect , useDispatch, useSelector } from 'react-redux';
+
+import { addProductToCart } from '../../redux/actions/cartActions';
 
 const index = ({ product, currency }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const { id, name, image_url, prices } = product;
 
   const addToCart = () => {

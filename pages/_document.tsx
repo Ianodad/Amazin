@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
+import { ServerStyleSheets, } from '@material-ui/core/styles';
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
-import theme from '../src/utils/theme';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -16,7 +15,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icon.png"></link>
+          <link rel="apple-touch-icon" href="/icon.png" />
           <meta name="theme-color" content="#fff" />
           {/* <link rel="apple-touch-icon" href="/apple-touch-icon"/> */}
           {/* <link rel="icon" href="/favicon.ico" /> */}

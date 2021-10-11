@@ -4,6 +4,13 @@ const runtimeCaching = require('next-pwa/cache');
 
 module.exports = withPWA({
   reactStrictMode: true,
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   pwa: {
     dest: 'public',
     register: true,

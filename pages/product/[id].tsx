@@ -1,11 +1,11 @@
 import MainLayout from '@components/Layouts/MainLayout';
-import React from 'react';
-import { wrapper } from 'src/redux/store';
-import { getProduct } from '../../src/redux/actions/productsActions';
-import { addProductToCart } from '../../src/redux/actions/cartActions';
-import { useSelector } from 'react-redux';
-
 import ProductDetails from '@components/ProductDetails';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { wrapper } from 'src/redux/store';
+
+import { addProductToCart } from '../../src/redux/actions/cartActions';
+import { getProduct } from '../../src/redux/actions/productsActions';
 import ProductDetailLoader from '../../src/utils/Loaders/productDetailsLoader';
 
 const productDetails = () => {

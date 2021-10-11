@@ -1,30 +1,22 @@
-import { NextPage } from 'next/types';
-import { GetServerSidePropsContext } from 'next';
-
 // import Button from '@mui/material/Button';
 // import Button from '@material-ui/core/Button';
-import Button from '@mui/material/Button';
-import { connect } from 'react-redux';
+import { GetServerSidePropsContext, NextPage } from 'next';
+import { useSelector } from 'react-redux';
+import MainLayout from 'src/components/Layouts/MainLayout';
 
-import { wrapper } from '../src/redux/store';
+import ProductCard from '../src/components/ProductCard';
 // import actions;
 import { getAllProducts } from '../src/redux/actions/productsActions';
-import MainLayout from 'src/components/Layouts/MainLayout';
-import ProductCard from '../src/components/ProductCard';
-import { useEffect } from 'react';
-
-import { useSelector } from 'react-redux';
-
+import { wrapper } from '../src/redux/store';
 import ProductsLoader from '../src/utils/Loaders/productsLoader';
 
-export interface ServerSidePropsContext extends GetServerSidePropsContext {
-  store: any;
-}
 // const { getAllProducts } = productsActions;
-const Home: NextPage = (props) => {
+const Home: NextPage = () => {
   // {console.log(props)}
-  const { products, currency } = useSelector((state) => state.products);
+  const { products: allProducts } = useSelector((state: any) => state);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { products, currency } = allProducts;
   // console.log('products', products);
 
   return (

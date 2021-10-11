@@ -1,8 +1,9 @@
-import productDetails from '@pages/product/[id]';
-import React from 'react';
-import Link from 'next/link';
+/* eslint-disable @typescript-eslint/naming-convention */
 import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { addProductToCart } from '../../redux/actions/cartActions';
 
 const index = ({ productDetails, currency }) => {

@@ -3,13 +3,13 @@ import { combineReducers } from 'redux';
 import { productsReducer } from './productsReducers';
 import { cartReducer } from './cartReducer';
 export interface ProductsType {
-  products: any[];
-  productDetails: any;
+  products: unknown[];
+  productDetails: unknown;
   currency: number;
 }
 
 export interface CartType {
-  cart: any[];
+  cart: unknown[];
   cartPosition: boolean;
 }
 

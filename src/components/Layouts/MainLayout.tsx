@@ -1,9 +1,10 @@
-import React, { FC, useState, useEffect } from 'react';
-import Navbar from '../Navbar';
-import Cart from '../Cart';
-import { loadCart, closeCart, openCart } from '../../redux/actions/cartActions';
-import { changeCurrency } from '../../redux/actions/productsActions';
+import React, { FC, useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { closeCart, loadCart, openCart } from '../../redux/actions/cartActions';
+import { changeCurrency } from '../../redux/actions/productsActions';
+import Cart from '../Cart';
+import Navbar from '../Navbar';
 
 const MainLayout: FC = ({ children }) => {
   const dispatch = useDispatch();

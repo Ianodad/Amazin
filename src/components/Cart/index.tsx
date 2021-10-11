@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
-import CartCard from './CartCard';
-import { closeCart, loadCart, removeProductFromCart } from '../../redux/actions/cartActions';
-
-import { wrapper } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { closeCart, loadCart, removeProductFromCart } from '../../redux/actions/cartActions';
+import { wrapper } from '../../redux/store';
+import CartCard from './CartCard';
 
 // import
 const index = () => {
@@ -12,9 +13,7 @@ const index = () => {
   const { cartState, products } = useSelector((state) => state);
   const { cart, cartPosition } = cartState;
   const { currency } = products;
-  console.log('cart', cartPosition);
   const currencyType = cart[0]?.prices[currency]?.currency;
-  console.log(currencyType);
   const onCloseCart = () => {
     dispatch(closeCart());
   };
@@ -22,11 +21,10 @@ const index = () => {
   const calculateTotal = () => {
     let total = 0;
     cart.forEach((item) => {
-      if (item.cartQuantity > 0) {
-        total += item.prices[currency].price * item.cartQuantity;
-      } else {
-        total += item.prices[currency].price;
-      }
+      total +=
+        item.cartQuantity > 0
+          ? item.prices[currency].price * item.cartQuantity
+          : item.prices[currency].price;
     });
     return total;
   };
@@ -104,16 +102,15 @@ Leaving: "ease-in-out duration-500"
                   <div className="flow-root">
                     <ul role="list" className="-my-6 divide-y divide-gray-200">
                       {cart &&
-                        cart.map((item, index) => {
-                          return (
-                            <CartCard
-                              key={index}
-                              product={item}
-                              currency={currency}
-                              onRemoveFromCart={onRemoveFromCart}
-                            />
-                          );
-                        })}
+                        cart.map((item, key) => (
+                          <CartCard
+                            // eslint-disable-next-line react/no-array-index-key
+                            key={key}
+                            product={item}
+                            currency={currency}
+                            onRemoveFromCart={onRemoveFromCart}
+                          />
+                        ))}
                     </ul>
                   </div>
                 </div>

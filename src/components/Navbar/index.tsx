@@ -1,11 +1,12 @@
+import Link from 'next/link';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CurrencySelect from './CurrencySelect';
-import Link from 'next/link';
 
-const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
+import CurrencySelect from './CurrencySelect';
+
+const index = ({ cart, onOpenCart, changeCurrency, currency }) => 
   // console.log('navBar', cart);
-  return (
+   (
     <nav className="bg-white shadow dark:bg-gray-800">
       <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
@@ -66,8 +67,8 @@ const index = ({ cart, onOpenCart, changeCurrency, currency }) => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+;
 
 const mapStateToProps = (state) => ({});
 

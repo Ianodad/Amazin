@@ -3,27 +3,52 @@
     "allowJs": true,
     "baseUrl": ".",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    // "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@styles/*": ["styles/*"],
-      "@pages/*": ["pages/*"],
-      "@hooks/*": ["hooks/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ]
     },
     "pretty": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     // "target": "es5",
     "strict": false,
-    "target": "es2018"
+    "target": "es2018",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   },
-  "exclude": ["node_modules", "next.config.js"],
-  "files": ["pages/index.tsx"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "pages/index.tsx"]
+  "exclude": [
+    "node_modules",
+    "next.config.js"
+  ],
+  "files": [
+    "pages/index.tsx"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next.config.js",
+    "pages/index.tsx"
+  ]
 }
