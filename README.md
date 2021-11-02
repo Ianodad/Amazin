@@ -5,42 +5,41 @@
 Front end for a eCommerce application
 
 ## Project Status
+
 ## Key Feautures
-- [x] Redux 
+
+- [x] Redux
 - [x] SSR
 - [x] Typescript
-- [ ] Docker
-- [ ] PWA(Service Workers)
-- [ ] Shopping Cart
+- [x] Docker
+- [x] PWA(Service Workers)
+- [x] Shopping Cart
 - [ ] 18n library
-
-
-
 
 ## Installation and Setup Instructions
 
-#### Example:  
+#### Example:
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
 Installation:
 
-`npm install`  
+`npm install`
 
-To Run Test Suite:  
+To Run Test Suite:
 
-`npm test`  
+`npm test`
 
 To Start Server:
 
-`npm run dev`  
+`npm run dev`
 
 To Visit App:
 
-`localhost:3000`  
-
+`localhost:3000`
 
 ### Run with Docker
+
 #### run docker with npm
 
 #### run docker with npm for development
@@ -62,13 +61,17 @@ docker run --name amazin -d -p 3000:3000 amazin:latest
 Open in browser
 http://localhost:3000/
 
-### Run with Docker-compose 
+### Run with Docker-compose
+
 ```console
 docker-compose up --build
 ```
+
 Open in browser
 http://localhost:3000/
-****
+
+---
 
 ## License
+
 MIT (c) 2021 [Ian Adera](https://github.com/ianodad)

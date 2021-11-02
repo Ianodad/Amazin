@@ -1,14 +1,14 @@
 import {
-  ADD_PRODUCT_TO_CART,
   ADD_PRODUCT_CART_FAILURE,
+  ADD_PRODUCT_TO_CART,
   CART_POSITION,
 } from '../constants/cartConstants';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 export const addProductToCart = (product) => async (dispatch) => {
   try {
-    let fromCartProducts = JSON.parse(localStorage.getItem('amazinCart')) || [];
+    const fromCartProducts = JSON.parse(localStorage.getItem('amazinCart')) || [];
     const productCart = _.find(fromCartProducts, { id: product.id });
     // console.log('filteredProducts', filteredProducts);
     if (productCart) {
@@ -18,7 +18,7 @@ export const addProductToCart = (product) => async (dispatch) => {
 
       localStorage.setItem('amazinCart', JSON.stringify([...filteredProducts, productCart]));
 
-      console.log([...filteredProducts, productCart]);
+      // console.log([...filteredProducts, productCart]);
       dispatch({
         type: ADD_PRODUCT_TO_CART,
         payload: [...filteredProducts, productCart],
@@ -39,6 +39,7 @@ export const addProductToCart = (product) => async (dispatch) => {
 
     // wax-on wax-off
   } catch (error) {
+    console.log(error);
     dispatch({
       type: ADD_PRODUCT_CART_FAILURE,
       payload: error,
@@ -49,7 +50,7 @@ export const addProductToCart = (product) => async (dispatch) => {
 export const removeProductFromCart = (product) => async (dispatch) => {
   // console.log(product);
   try {
-    let fromCartProducts = JSON.parse(localStorage.getItem('amazinCart'));
+    const fromCartProducts = JSON.parse(localStorage.getItem('amazinCart'));
 
     const newProduct = fromCartProducts.filter((item) => item.id !== product.id);
     const dataProducts = JSON.parse(JSON.stringify(newProduct));
@@ -67,7 +68,6 @@ export const removeProductFromCart = (product) => async (dispatch) => {
 };
 
 export const closeCart = () => async (dispatch) => {
-
   try {
     dispatch({
       type: CART_POSITION,
@@ -79,7 +79,6 @@ export const closeCart = () => async (dispatch) => {
 };
 
 export const openCart = () => async (dispatch) => {
-
   try {
     dispatch({
       type: CART_POSITION,
@@ -92,7 +91,7 @@ export const openCart = () => async (dispatch) => {
 
 // load form cart
 export const loadCart = () => async (dispatch) => {
-  let fromCartProducts = JSON.parse(localStorage.getItem('amazinCart'));
+  const fromCartProducts = JSON.parse(localStorage.getItem('amazinCart'));
   dispatch({
     type: ADD_PRODUCT_TO_CART,
     payload: fromCartProducts,

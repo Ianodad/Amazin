@@ -11,6 +11,7 @@ import ProductDetailLoader from '../../src/utils/Loaders/productDetailsLoader';
 const productDetails = () => {
   const { products } = useSelector((state) => state);
 
+  console.log(products);
   return (
     <MainLayout>
       <div className="container flex justify-center">

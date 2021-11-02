@@ -13,7 +13,7 @@ const index = () => {
   const { cartState, products } = useSelector((state) => state);
   const { cart, cartPosition } = cartState;
   const { currency } = products;
-  const currencyType = cart[0]?.prices[currency]?.currency;
+  const currencyType = cart && cart[0]?.prices[currency]?.currency;
   const onCloseCart = () => {
     dispatch(closeCart());
   };
