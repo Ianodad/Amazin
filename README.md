@@ -12,11 +12,11 @@ Front end for a eCommerce application
 
 # CartView
 
-![Cart View](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/product_details.png?raw=true)
+![Cart View](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/with%20cart.png?raw=true)
 
 # Product Page
 
-![Product apge](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/with%20cart.png?raw=true)
+![Product apge](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/product_details.png?raw=true)
 
 ## Project Status
 
