@@ -4,6 +4,20 @@
 
 Front end for a eCommerce application
 
+### Screen Shots
+
+# Products Page
+
+![Products Page](https://github.com/Ianodad/Amazin/blob/03e7e9608d0d2998d5014782ab075cfa20dda854/screenshot/HomePage.png?raw=true)
+
+# CartView
+
+![Cart View](https://github.com/Ianodad/Amazin/blob/03e7e9608d0d2998d5014782ab075cfa20dda854/screenshot/with%20cart.png?raw=true)
+
+# Product Page
+
+![Product apge](https://github.com/Ianodad/Amazin/blob/03e7e9608d0d2998d5014782ab075cfa20dda854/screenshot/with%20cart.png?raw=true)
+
 ## Project Status
 
 ## Key Feautures
