@@ -8,15 +8,15 @@ Front end for a eCommerce application
 
 # Products Page
 
-![Products Page](https://github.com/Ianodad/Amazin/blob/03e7e9608d0d2998d5014782ab075cfa20dda854/screenshots/HomePage.png?raw=true)
+![Products Page](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/HomePage.png?raw=true)
 
 # CartView
 
-![Cart View](https://github.com/Ianodad/Amazin/blob/03e7e9608d0d2998d5014782ab075cfa20dda854/screenshots/with%20cart.png?raw=true)
+![Cart View](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/product_details.png?raw=true)
 
 # Product Page
 
-![Product apge](https://github.com/Ianodad/Amazin/blob/bb4928aa69879a4eca0cce1da104156eba54ac5a/screenshots/product_details.png?raw=true)
+![Product apge](https://github.com/Ianodad/Amazin/blob/5be3f56d789a2680d3cd0b53df9dab976234e334/screenshots/with%20cart.png?raw=true)
 
 ## Project Status
 
